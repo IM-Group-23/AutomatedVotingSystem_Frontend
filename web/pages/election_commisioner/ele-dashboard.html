@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Automated Voting System</title>
+    <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../images/favicon.png"/>
+</head>
+
+<body>
+<div class="container-scroller">
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+            <a class="navbar-brand brand-logo" href="../../index.html">
+                <img src="../../images/logo.svg" alt="logo"/>
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.html">
+                <img src="../../images/logo-mini.svg" alt="logo"/>
+            </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item dropdown d-none d-xl-inline-block">
+                    <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
+                       aria-expanded="false">
+                        <span class="profile-text">Hello, Dilini :P</span>
+                    </a>
+
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <div class="nav-link">
+                        <div class="user-wrapper">
+                            <div class="text-wrapper">
+                                <p class="profile-name">Dilini :P</p>
+                                <div>
+                                    <small class="designation text-muted">Election Commisioner</small>
+                                    <span class="status-indicator online"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="ele-declare_election.html">
+                            <button class="btn btn-success btn-block">Declare Election
+                                <i class="mdi mdi-plus"></i>
+                            </button>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ele-dashboard.html">
+                        <i class="menu-icon mdi mdi-television"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ele-manage_election_candidates.html">
+                        <i class="menu-icon mdi mdi-chart-line"></i>
+                        <span class="menu-title">Manage Election Candidates</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ele-manage_province_details.html">
+                        <i class="menu-icon mdi mdi-table"></i>
+                        <span class="menu-title">Manage Province Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ele-manage_grama_niladari.html">
+                        <i class="menu-icon mdi mdi-sticker"></i>
+                        <span class="menu-title">Manage Grama Niladari</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ele-view_voters.html">
+                        <i class="menu-icon mdi mdi-sticker"></i>
+                        <span class="menu-title">View Voters</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-cube text-danger icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Provinces</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-provinces">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Electoral Districts</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-districts">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-poll-box text-success icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Polling Divisions</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-pollDivs">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-account-location text-info icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Parties</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-parties">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-cube text-danger icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Elections</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-elections">0</span></h3>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mt-3 mb-0">
+                                        <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> So far
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Candidates</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-candidates">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-poll-box text-success icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Voters</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-voters">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-account-location text-info icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Employees</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0"><span id="span-employees">0</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-muted mt-3 mb-0">
+                                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Election Commissioners and Grama Niladaris
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Provinces</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tbl-provinces">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                #
+                                            </th>
+                                            <th>
+                                                Province
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Electoral Division -->
+                    <div class="col-lg-4 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Electoral Districts</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tbl-districts">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                #
+                                            </th>
+                                            <th>
+                                                Electoral District
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Polling Division -->
+                    <div class="col-lg-4 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Polling Divisions</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tbl-pollDivs">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                #
+                                            </th>
+                                            <th>
+                                                Polling Division
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+              . All rights reserved.</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script src="../../vendors/js/vendor.bundle.base.js"></script>
+<script src="../../vendors/js/vendor.bundle.addons.js"></script>
+<script src="../../js/off-canvas.js"></script>
+<script src="../../js/misc.js"></script>
+<script src="../../js/ele-dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Automated Voting System</title>
+    <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../images/favicon.png"/>
+</head>
+
+<body>
+<div class="container-scroller">
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+            <a class="navbar-brand brand-logo" href="../../index.html">
+                <img src="../../images/logo.svg" alt="logo"/>
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.html">
+                <img src="../../images/logo-mini.svg" alt="logo"/>
+            </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item dropdown d-none d-xl-inline-block">
+                    <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
+                       aria-expanded="false">
+                        <span class="profile-text" id="txt-helloUser">Hello, Dilini :P</span>
+                    </a>
+
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <div class="nav-link">
+                        <div class="user-wrapper">
+                            <div class="text-wrapper">
+                                <p class="profile-name">Dilini :P</p>
+                                <div>
+                                    <small class="designation text-muted">Grama Niladari</small>
+                                    <span class="status-indicator online"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="grn-manage_voters.html">
+                        <i class="menu-icon mdi mdi-chart-line"></i>
+                        <span class="menu-title">Manage Voters</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="grn-manage_my_account.html">
+                        <i class="menu-icon mdi mdi-sticker"></i>
+                        <span class="menu-title">Manage My Account</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-6 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Voters</h3><br/>
+                                <form class="form-sample">
+                                    <p class="card-description">
+                                        Details
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">NIC</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txt-id"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Name</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txt-name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Title</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" id="cmb-title">
+                                                        <option>Mr.</option>
+                                                        <option>Mrs.</option>
+                                                        <option>Miss.</option>
+                                                        <option>Thero</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Email</label>
+                                                <div class="col-sm-8">
+                                                    <input type="email" class="form-control" id="txt-email"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Address</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txt-address"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Contact Number </label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txt-contact"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Password</label>
+                                                <div class="col-sm-8">
+                                                    <input type="password" class="form-control" id="txt-pass"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Confirm Password</label>
+                                                <div class="col-sm-8">
+                                                    <input type="password" class="form-control" id="txt-confirmPass"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="template-demo">
+                                            <button type="button" class="btn btn-success btn-fw" id="btn-add">Register
+                                                Voter
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-fw" id="btn-update">Update
+                                                Details
+                                            </button>
+                                            <button type="reset" class="btn btn-secondary btn-fw">Clear Fields</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Voters List in GN Provision <span id="span-gnProvision"></span></h4>
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="tbl-Voters">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                NIC
+                                            </th>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>Email</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <footer class="footer">
+                <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+              . All rights reserved.</span>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="../../vendors/js/vendor.bundle.base.js"></script>
+<script src="../../vendors/js/vendor.bundle.addons.js"></script>
+<script src="../../js/off-canvas.js"></script>
+<script src="../../js/misc.js"></script>
+<script src="../../js/chart.js"></script>
+<script src="../../js/grn-manageVoters.js"></script>
+</body>
+
+</html>

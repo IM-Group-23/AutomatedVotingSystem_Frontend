@@ -28,7 +28,7 @@ $(document).ready(
                 if ("ele".localeCompare(radioValue)) {
                     window.location = "grama_niladari/grn-dashboard.html";
                 } else if ("grn".localeCompare(radioValue)) {
-                    window.location = "election_commissioner/ele-dashboard.html";
+                    window.location = "election_commisioner/ele-dashboard.html";
 
                 }
             } else {

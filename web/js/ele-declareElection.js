@@ -139,32 +139,61 @@ $("#btn-enrollCandidate").click(function () {
 });
 
 $("#btn-declareElection").click(function () {
-    var election={};
-    election.date=$("txt-date").val();
-    election.startTime=$("txt-startTime").val();
-    election.endTime=$("txt-endTime").val();
+    var election = {};
+    election.date=$("#txt-date").val();
+    election.startTime=$("#txt-startTime").val();
+    election.endTime=$("#txt-endTime").val();
     election.electionType=$("#cmb-electionType option:selected").val();
 
     var contestantDetails = [];
-    var j = 0;
-    $("#tbl-Candidates table tbody").find('tr').each(function () {
-        console.log("going throw table rows");
-        var $tds = $(this).find('td'),
-            candidateNum = $tds.eq(0).text(),
-            candidateName = $tds.eq(2).text();
-            contestantDetails[j]=[candidateName,candidateNum];
-            j++;
-    });
+    
 
-    election.candidates=contestantDetails;
+    /*******************************Dilini's Code****************************************** */
+    // var j = 0;
+    // $("#tbl-Candidates table tbody").find('tr').each(function () {
+    //     console.log("going throw table rows");
+    //     var $tds = $(this).find('td'),
+    //         candidateNum = $tds.eq(0).text(),
+    //         candidateName = $tds.eq(2).text();
+    //         contestantDetails[j] = [candidateName,candidateNum];
+    //         j++;
+    // });
+/******************************************************************************************* */
+/****************************Udith 's Code ************************************************* */
 
+
+       var myTab = document.getElementById('tbl-Candidates');
+
+       // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+       for (i = 1; i < myTab.rows.length; i++) {
+
+            // GET THE CELLS COLLECTION OF THE CURRENT ROW.
+            var objCells = myTab.rows.item(i).cells;
+            
+            candidateNum =  objCells.item(0).innerHTML;
+            candidateName = objCells.item(1).innerHTML;
+            contestantDetails[i-1] = [candidateName,candidateNum];
+
+       }
+
+
+
+
+/****************************************************************************************** */
+
+
+    election.candidates = contestantDetails;
+
+    console.log("Below is the form");
     console.log(election);
 
     var election_json = JSON.stringify(election);
 
+
+
     var ajaxConfigElection = {
-        method: "PUT",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/elections/0a",
+        method: "POST",
+        url: "http://localhost:8080/avs/api/v1/election-commissioner/elections/add",
         crossDomain: true,
         async: true,
         data: election_json,

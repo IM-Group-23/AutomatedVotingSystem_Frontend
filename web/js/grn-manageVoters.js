@@ -3,7 +3,7 @@ $(document).ready(loadData());
 function loadData() {
     var ajaxConfigVoters = {
         method: "GET",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/voters",
+        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters",
         crossDomain: true,
         async: true
     };
@@ -78,6 +78,7 @@ function getData() {
 $("#btn-add").click(function () {
 
     var voter = getData();
+    // add polling division from grama niladari data saved in session
     console.log(voter);
 
     var voter_json = JSON.stringify(voter);
@@ -97,25 +98,25 @@ $("#btn-add").click(function () {
     });
 });
 
-$("#btn-update").click(function () {
-    var contestant = getData();
+// $("#btn-update").click(function () {
+//     var contestant = getData();
 
-    console.log("update" + contestant);
+//     console.log("update" + contestant);
 
-    var contestant_json = JSON.stringify(contestant);
+//     var contestant_json = JSON.stringify(contestant);
 
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/contestants/" + contestant.contestId,
-        data: contestant_json,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function () {
-            alert("Successfully update Candidate");
-        },
-        failed: function () {
-            alert("Error in updating the Candidate");
-        }
-    });
-});
+//     $.ajax({
+//         type: "POST",
+//         url: "http://localhost:8080/avs/api/v1/election-commissioner/contestants/" + contestant.contestId,
+//         data: contestant_json,
+//         contentType: "application/json; charset=utf-8",
+//         dataType: "json",
+//         success: function () {
+//             alert("Successfully update Candidate");
+//         },
+//         failed: function () {
+//             alert("Error in updating the Candidate");
+//         }
+//     });
+// });
 

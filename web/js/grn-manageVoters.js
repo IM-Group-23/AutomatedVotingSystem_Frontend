@@ -58,8 +58,8 @@ function getData() {
     var email = $("#txt-email").val();
     var address = $("#txt-address").val();
     var contact = $("#txt-contact").val();
-    if ($("#txt-pass").val() === $("#txt-confirmPass").val()) {
-        var password = $("#txt-contact").val();
+    var contact = $("#txt-contact").val();
+  
 
         var voter = {};
         voter.username = id;
@@ -69,24 +69,24 @@ function getData() {
         voter.email = email;
         voter.mobile = contact;
         voter.address = address;
+        voter.contact = contact;
+        // is_voted field must be set to 0
 
         return voter;
-    }else {
-        alert("Password doesn't match");
-    }
+    
 }
 
 $("#btn-add").click(function () {
 
     var voter = getData();
-    console.log("save" + voter);
+    console.log(voter);
 
-    var contestant_json = JSON.stringify(voter);
+    var voter_json = JSON.stringify(voter);
 
     $.ajax({
-        type: "PUT",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/voters/0a",
-        data: contestant_json,
+        type: "POST",
+        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters/add",
+        data: voter_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function () {

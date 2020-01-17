@@ -63,7 +63,6 @@ function getData() {
 
         var voter = {};
         voter.username = id;
-        voter.password = password;
         voter.name = name;
         voter.title = title;
         voter.email = email;

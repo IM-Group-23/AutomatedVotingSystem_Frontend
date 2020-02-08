@@ -3,12 +3,14 @@ $(document).ready(loadData());
 function loadData() {
     var ajaxConfigVoters = {
         method: "GET",
-        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters",
+        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters?admin="  + sessionStorage.getItem("user"),
         crossDomain: true,
         async: true
     };
 
     $.ajax(ajaxConfigVoters).done(function (response) {
+        console.log("Lading data to the table");
+        console.log(response);
         response.forEach(function (voter) {
             var tableRow = "<tr>" +
                 "<td>" + voter.username + "</td>" +
@@ -42,6 +44,7 @@ function enableTableRowSelection() {
         };
 
         $.ajax(ajaxConfigVoter).done(function (response) {
+            console.log(response);
             response.forEach(function (voter) {
                 $("#cmb-title").select(voter.title);
                 $("#txt-address").val(voter.address);

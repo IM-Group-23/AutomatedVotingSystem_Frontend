@@ -24,21 +24,23 @@ $(document).ready(
         };
 
         $.ajax(ajaxConfig).done(function (response) {
-            if (true === response) {
+            if (null !== response) {
 
                 console.log("Login Response:");
                 console.log(response);
-                sessionStorage.setItem("user", JSON.stringify(response));
+                sessionStorage.setItem("user", response);
                 
 
-                if ("ele".localeCompare(radioValue)) {
-                    window.location = "grama_niladari/grn-dashboard.html";
-                } else if ("grn".localeCompare(radioValue)) {
+                if ("grn".localeCompare(radioValue)) {
+                    window.location = "grama_niladari/grn-manage_voters.html";
+                } else if ("ele".localeCompare(radioValue)) {
                     window.location = "election_commisioner/ele-dashboard.html";
 
+                }else {
+                    alert("Wrong Credentials or some other Error occurred");
                 }
-            } else {
-                alert("Wrong Credentials or some other Error occurred");
+            } else{
+                alert("Null response from backend");
             }
         });
     })

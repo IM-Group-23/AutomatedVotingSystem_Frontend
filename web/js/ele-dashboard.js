@@ -129,20 +129,8 @@ function loadData() {
         $("#span-voters").text(response);
     });
 
-    //employees
-    var ajaxConfigEle = {
-        method: "GET",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/get?action=count",
-        crossDomain: true,
-        async: true
-    };
+    //grn
     var employees = 0;
-    $.ajax(ajaxConfigEle).done(function (response) {
-        console.log("ele count = "+response);
-        employees = employees + response;
-        console.log(employees);
-    });
-
     var ajaxConfigGrn = {
         method: "GET",
         url: "http://localhost:8080/avs/api/v1/election-commissioner/grn?action=count",

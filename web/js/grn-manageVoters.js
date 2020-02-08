@@ -1,9 +1,13 @@
 $(document).ready(loadData());
 
 function loadData() {
+    var grn_json = JSON.stringify(sessionStorage.getItem("user"));
+
+
     var ajaxConfigVoters = {
         method: "GET",
-        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters?admin="  + sessionStorage.getItem("user"),
+        data: grn_json,
+        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters",
         crossDomain: true,
         async: true
     };
@@ -61,7 +65,6 @@ function getData() {
     var email = $("#txt-email").val();
     var address = $("#txt-address").val();
     var contact = $("#txt-contact").val();
-    var contact = $("#txt-contact").val();
   
 
         var voter = {};
@@ -71,7 +74,7 @@ function getData() {
         voter.email = email;
         voter.mobile = contact;
         voter.address = address;
-        voter.contact = contact;
+        voter.gramaNiladari = sessionStorage.getItem("user");
         
         // is_voted field must be set to 0
 
@@ -89,7 +92,7 @@ $("#btn-add").click(function () {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters/add?admin=" + sessionStorage.getItem("user") ,
+        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters/add",
         data: voter_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",

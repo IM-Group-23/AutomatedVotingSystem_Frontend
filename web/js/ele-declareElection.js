@@ -126,7 +126,7 @@ $("#btn-enrollCandidate").click(function () {
         "<td>" + pollDiv + "</td>" +
         "<td>" + district + "</td>" +
         "<td>" + province + "</td>" +
-        "<td class='recycle' style='text-align: center;'><i style='color: #0D0A0A' class='fa fa-window-close'></i></td></tr>";
+        "<td  style='text-align: center;'> <i style='color: #0D0A0A' class='fa fa-window-close'></i></td></tr>";
 
     $("#tbl-Candidates tbody").append(tableRow);
 

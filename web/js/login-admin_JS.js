@@ -25,6 +25,12 @@ $(document).ready(
 
         $.ajax(ajaxConfig).done(function (response) {
             if (true === response) {
+
+                console.log("Login Response:");
+                console.log(response);
+                sessionStorage.setItem("user", JSON.stringify(response));
+                
+
                 if ("ele".localeCompare(radioValue)) {
                     window.location = "grama_niladari/grn-dashboard.html";
                 } else if ("grn".localeCompare(radioValue)) {

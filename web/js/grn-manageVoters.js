@@ -69,6 +69,7 @@ function getData() {
         voter.mobile = contact;
         voter.address = address;
         voter.contact = contact;
+        
         // is_voted field must be set to 0
 
         return voter;
@@ -85,7 +86,7 @@ $("#btn-add").click(function () {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters/add",
+        url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters/add?admin=" + sessionStorage.getItem("user") ,
         data: voter_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",

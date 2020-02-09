@@ -4,7 +4,11 @@ $(document).ready(function () {
     loadData();
 });
 
+// fill the table
 function loadGramaNiladari() {
+
+    $("#tbl-grn tbody").empty();
+
     var ajaxConfigContestants = {
         method: "GET",
         url: "http://localhost:8080/avs/api/v1/election-commissioner/grn",
@@ -33,8 +37,7 @@ function loadGramaNiladari() {
                         async: true
                     }).done(function (response) {
                         alert("Grama Niladaro has been successfully removed");
-                        $("#tbl-grn tbody tr").remove();
-                        // loadGramaNiladari();
+                        loadGramaNiladari();
                     });
                 }
             });
@@ -42,6 +45,7 @@ function loadGramaNiladari() {
     });
 }
 
+// fill the comboboxes
 function loadData() {
     var ajaxConfigProvince = {
         method: "GET",
@@ -142,18 +146,19 @@ function getData() {
     var username = $("#txt-username").val();
     var name = $("#txt-name").val();
     var title = $("#cmb-title option:selected").val();
-    var pollDiv = $("#cmb-pollDiv option:selected").val();
-    var district = $("#cmb-district option:selected").val();
-    var province = $("#cmb-province option:selected").val();
+    var pollDiv = $("#cmb-pollDivs option:selected").val();
+    var district = $("#cmb-districts option:selected").val();
+    var province = $("#cmb-provinces option:selected").val();
     var gnProvision = $("#txt-gnProvision").val();
     var email = $("#txt-email").val();
     var contact = $("#txt-contact").val();
+
     if ($("#txt-pass").val() === $("#txt-confirmPass").val()) {
-        var password = $("#txt-contact").val();
+        var password = $("#txt-pass").val();
 
         var grn = {};
         grn.username = username;
-        grn.password= password;
+        grn.password = password;
         grn.name = name;
         grn.title = title;
         grn.email = email;
@@ -167,29 +172,36 @@ function getData() {
     }
     else {
         alert("Password doesn't match!");
+        return null;
     }
+
 }
 
 $("#btn-add").click(function () {
 
     var grn = getData();
-    console.log("save" + grn);
+    if (null !== grn) {
+        console.log("save" + grn);
 
-    var grn_json = JSON.stringify(grn);
+        var grn_json = JSON.stringify(grn);
+        console.log(grn_json);
 
-    $.ajax({
-        type: "PUT",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/grn/"+$("#txt-username").val(),
-        data: grn_json,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function () {
-            alert("Successfully added Grama Niladari");
-        },
-        failed: function () {
-            alert("Error in adding the Grama Niladari");
-        }
-    });
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/avs/api/v1/election-commissioner/grn/add",
+            data: grn_json,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function () {
+                alert("Successfully added Grama Niladari");
+                loadGramaNiladari();
+            },
+            failed: function () {
+                alert("Error in adding the Grama Niladari");
+            }
+        });
+    }
+
 });
 
 $("#btn-update").click(function () {

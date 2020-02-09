@@ -13,6 +13,7 @@ function loadContestants() {
     };
 
     $.ajax(ajaxConfigContestants).done(function (response) {
+        $("#tbl-Candidates tbody").empty();
         response.forEach(function (contestant) {
             var tableRow = "<tr>" +
                 "<td>" + contestant.contestId + "</td>" +
@@ -157,10 +158,12 @@ function enableTableRowSelection() {
 function getData() {
     var id = $("#txt-id").val();
     var name = $("#txt-name").val();
-    var party = $("#cmb-party option:selected").val();
-    var pollDiv = $("#cmb-pollDiv option:selected").val();
-    var district = $("#cmb-district option:selected").val();
-    var province = $("#cmb-province option:selected").val();
+    var party = $("#cmb-parties option:selected").val();
+    var pollDiv = $("#cmb-pollDivs option:selected").val();
+    var district = $("#cmb-districts option:selected").val();
+    var province = $("#cmb-provinces option:selected").val();
+
+    console.log(party,pollDiv, district, province);
 
     var contestant = {};
     contestant.contestId = id;
@@ -179,15 +182,17 @@ $("#btn-add").click(function () {
     console.log("save" + contestant);
 
     var contestant_json = JSON.stringify(contestant);
+    console.log(contestant_json);
 
     $.ajax({
-        type: "PUT",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/contestants/0a",
+        type: "POST",
+        url: "http://localhost:8080/avs/api/v1/election-commissioner/contestants/add",
         data: contestant_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function () {
             alert("Successfully added Candidate");
+            loadContestants();
         },
         failed: function () {
             alert("Error in adding the Candidate");

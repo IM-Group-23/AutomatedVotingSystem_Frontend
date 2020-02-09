@@ -1,6 +1,8 @@
 $(document).ready(loadData());
 
+// load data onto provinces table when page is loaded
 function loadData() {
+    $("#tbl-provinces tbody").empty();
 
     var ajaxConfigProvince2 = {
         method: "GET",
@@ -15,7 +17,7 @@ function loadData() {
         response.forEach(function (province) {
             var tableRow = "<tr>" +
                 "<td>" + province.id + "</td>" +
-                "<td>" + province.name + "</td>" +
+                "<td class='i'>" + province.name + "</td>" +
                 "<td class='recycle-1'><button type='button' class='btn btn-danger'>X</button> </td></tr>";
             $("#tbl-provinces tbody").append(tableRow);
         });
@@ -47,15 +49,18 @@ function loadData() {
     });
 }
 
-
+// ----------------------------------------------------------------------------------------------------------------------------------
+// once a row in provinces table is clicked, fill the districts table with the relevant districts of that selected province
 $("#tbl-provinces tbody tr").click(function () {
-    //get row contents into an array
-    var tableData = $(this).children("td").map(function () {
-        return $(this).text();
-    }).get();
-    console.log(tableData);
 
-    var province = val(tableData[1]);
+    //get row contents into an array
+
+    // var tableData = $(this).children("td").map(function () {
+    //     return $(this).text();
+    // }).get();
+    // console.log(tableData);
+
+    var province = $('.i',this).html();
     $("#span-province").text(province);
 
     console.log("province selected!");
@@ -85,6 +90,8 @@ $("#tbl-provinces tbody tr").click(function () {
     });
 });
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+// once a row in districts table is clicked, fill the polling divisions table with the relevant polling divisions of that selected district
 $("#tbl-districts tbody tr").click(function () {
     //get row contents into an array
     var tableData = $(this).children("td").map(function () {
@@ -123,6 +130,8 @@ $("#tbl-districts tbody tr").click(function () {
     });
 });
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+// click event for adding a new province
 $("#btn-addProvince").click(function () {
 
     var province = {};
@@ -148,6 +157,8 @@ $("#btn-addProvince").click(function () {
     });
 });
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+// click event for adding a new district for a selected province
 $("#btn-addDistrict").click(function () {
 
     var district = {};
@@ -158,8 +169,8 @@ $("#btn-addDistrict").click(function () {
     console.log(district_json);
 
     $.ajax({
-        type: "PUT",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/districts/0a",
+        type: "POST",
+        url: "http://localhost:8080/avs/api/v1/election-commissioner/districts/add",
         data: district_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -172,6 +183,8 @@ $("#btn-addDistrict").click(function () {
     });
 });
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+// click event for adding a polling division for a selected district of a selected province
 $("#btn-addPollDiv").click(function () {
 
     var pollDiv = {};
@@ -183,8 +196,8 @@ $("#btn-addPollDiv").click(function () {
     console.log(pollDiv_json);
 
     $.ajax({
-        type: "PUT",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/pollDivs/0a",
+        type: "POST",
+        url: "http://localhost:8080/avs/api/v1/election-commissioner/pollDivs/add",
         data: pollDiv_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",

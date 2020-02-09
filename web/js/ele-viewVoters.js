@@ -16,13 +16,13 @@ function loadData() {
         } else {
             var i = 1;
             response.forEach(function (grn) {
-                var voterCount = 0;
-                console.log(grn.voters);
-                if (null != grn.voters)
-                    voterCount = Object.keys(grn.voters).length;
+                // var voterCount = 0;
+                // console.log(grn.voters);
+                // if (null != grn.voters)
+                //     voterCount = Object.keys(grn.voters).length;
                 var tableRow = "<tr>" +
                     "<td>" + i + "</td>" +
-                    "<td>" + voterCount + "</td>" +
+                    "<td>" + grn.votersCount + "</td>" +
                     "<td>" + grn.gnProvision + "</td>" +
                     "<td>" + grn.pollDiv + "</td>" +
                     "<td>" + grn.district + "</td>" +

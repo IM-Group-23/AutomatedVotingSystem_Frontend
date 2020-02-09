@@ -94,19 +94,21 @@
                         <span class="menu-title">View Voters</span>
                     </a>
                 </li>
-                <!-- View Results -->
+<!-- View Results -->
                 <li class="nav-item">
                     <a class="nav-link" href="ele-view_results.html">
                         <i class="menu-icon mdi mdi-chart-line"></i>
                         <span class="menu-title">Election Results</span>
                     </a>
                 </li>
+
             </ul>
         </nav>
+
         <div class="main-panel">
             <div class="content-wrapper">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
                         <div class="card card-statistics">
                             <div class="card-body">
                                 <div class="clearfix">
@@ -122,8 +124,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                    </div> -->
+
+                    <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
                         <div class="card card-statistics">
                             <div class="card-body">
                                 <div class="clearfix">
@@ -174,8 +177,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+
+                <!-- <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
                         <div class="card card-statistics">
                             <div class="card-body">
@@ -250,9 +254,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
-                    <div class="col-lg-4 grid-margin">
+                    <!-- <div class="col-lg-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Provinces</h4>
@@ -274,23 +278,35 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
+
                     <!-- Electoral Division -->
-                    <div class="col-lg-4 grid-margin">
+                    <div class="col-lg-4 grid-margin" style="max-width: 50%;">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Electoral Districts</h4>
+                                <h4 class="card-title">Election Results</h4>
+                                <h5 class="card-title"><b>Winner :</b><span id="winner"></span> </h5>
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="tbl-districts">
                                         <thead>
+                                            <tr>
+                                                <th colspan="3" style="text-align: center" id="electionDetails">
+                                                   
+                                                </th>
+                                            </tr>
                                         <tr>
                                             <th>
-                                                #
+                                                Candidate's Number
                                             </th>
                                             <th>
-                                                Electoral District
+                                                Candidate's Name
+                                            </th>
+                                            <th>
+                                                No. of Votes
                                             </th>
                                         </tr>
+                                       
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -299,8 +315,10 @@
                             </div>
                         </div>
                     </div>
+
+
                     <!-- Polling Division -->
-                    <div class="col-lg-4 grid-margin">
+                    <!-- <div class="col-lg-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Polling Divisions</h4>
@@ -322,7 +340,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <footer class="footer">
@@ -339,7 +357,8 @@
 <script src="../../vendors/js/vendor.bundle.addons.js"></script>
 <script src="../../js/off-canvas.js"></script>
 <script src="../../js/misc.js"></script>
-<script src="../../js/ele-dashboard.js"></script>
+
+<script src="../../js/ele-results.js"></script>
 
 </body>
 

@@ -30,10 +30,11 @@ $(document).ready(
                 console.log(response);
                 sessionStorage.setItem("user", response);
                 
+                console.log(radioValue);
 
-                if ("grn".localeCompare(radioValue)) {
+                if ("grn".localeCompare(radioValue) === 0) {
                     window.location = "grama_niladari/grn-manage_voters.html";
-                } else if ("ele".localeCompare(radioValue)) {
+                } else if ("ele".localeCompare(radioValue) === 0) {
                     window.location = "election_commisioner/ele-dashboard.html";
 
                 }else {

@@ -1,12 +1,12 @@
 $(document).ready(loadData());
 
 function loadData() {
-    var grn_json = JSON.stringify(sessionStorage.getItem("user"));
-
+    var user = sessionStorage.getItem("user");
+    console.log(user);
 
     var ajaxConfigVoters = {
-        method: "GET",
-        data: grn_json,
+        method: "POST",
+        data: user,
         url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters",
         crossDomain: true,
         async: true
@@ -15,15 +15,18 @@ function loadData() {
     $.ajax(ajaxConfigVoters).done(function (response) {
         console.log("Lading data to the table");
         console.log(response);
-        response.forEach(function (voter) {
-            var tableRow = "<tr>" +
-                "<td>" + voter.username + "</td>" +
-                "<td>" + voter.name + "</td>" +
-                "<td>" + voter.email + "</td>" +
-                "<td><i class=\"fa fa-window-close\"></i></td></tr>";
+        if (null === response) {
+            var tableRow = "<tr><td colspan=5>No Data to Display</td></tr>";
+        } else
+            response.forEach(function (voter) {
+                var tableRow = "<tr>" +
+                    "<td>" + voter.username + "</td>" +
+                    "<td>" + voter.name + "</td>" +
+                    "<td>" + voter.email + "</td>" +
+                    "<td><i class=\"fa fa-window-close\"></i></td></tr>";
 
-            $("#tbl-Voters tbody").append(tableRow);
-        });
+                $("#tbl-Voters tbody").append(tableRow);
+            });
     });
 
     enableTableRowSelection();
@@ -65,21 +68,21 @@ function getData() {
     var email = $("#txt-email").val();
     var address = $("#txt-address").val();
     var contact = $("#txt-contact").val();
-  
 
-        var voter = {};
-        voter.username = id;
-        voter.name = name;
-        voter.title = title;
-        voter.email = email;
-        voter.mobile = contact;
-        voter.address = address;
-        voter.gramaNiladari = sessionStorage.getItem("user");
-        
-        // is_voted field must be set to 0
 
-        return voter;
-    
+    var voter = {};
+    voter.username = id;
+    voter.name = name;
+    voter.title = title;
+    voter.email = email;
+    voter.mobile = contact;
+    voter.address = address;
+    voter.gramaNiladari = sessionStorage.getItem("user");
+
+    // is_voted field must be set to 0
+
+    return voter;
+
 }
 
 $("#btn-add").click(function () {

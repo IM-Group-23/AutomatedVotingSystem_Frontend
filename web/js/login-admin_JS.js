@@ -28,7 +28,7 @@ $(document).ready(
 
                 console.log("Login Response:");
                 console.log(response);
-                sessionStorage.setItem("user", response);
+                sessionStorage.setItem("user", JSON.stringify(response));
                 
                 console.log(radioValue);
 

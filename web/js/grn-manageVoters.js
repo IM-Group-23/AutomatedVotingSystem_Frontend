@@ -9,7 +9,9 @@ function loadData() {
         data: user,
         url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters",
         crossDomain: true,
-        async: true
+        async: true,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
     };
 
     $.ajax(ajaxConfigVoters).done(function (response) {
@@ -77,9 +79,6 @@ function getData() {
     voter.email = email;
     voter.mobile = contact;
     voter.address = address;
-    voter.gramaNiladari = sessionStorage.getItem("user");
-
-    // is_voted field must be set to 0
 
     return voter;
 
@@ -92,13 +91,20 @@ $("#btn-add").click(function () {
     console.log(voter);
 
     var voter_json = JSON.stringify(voter);
+    console.log(voter_json);
+    var gramaNiladari = sessionStorage.getItem("user");
+
+    var voter_grn_json = '{"voterDTO":'+voter_json+', "gramaNiladariDTO":'+gramaNiladari+'}';
+    console.log(voter_grn_json);
 
     $.ajax({
         type: "POST",
         url: "http://localhost:8080/avs/api/v1/grama-niladari/grn/voters/add",
-        data: voter_json,
+        data: voter_grn_json,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
+        crossDomain: true,
+        async: true,
         success: function () {
             alert("Successfully added Candidate");
         },

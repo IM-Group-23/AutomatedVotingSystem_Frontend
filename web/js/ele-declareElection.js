@@ -110,6 +110,8 @@ $("#btn-getCandidates").click(function () {
     });
 });
 
+var tbl_rowCount = 0;
+
 $("#btn-enrollCandidate").click(function () {
     console.log("btn clicked");
     var candidateNo = $("#txt-candidateNo").val();
@@ -119,34 +121,35 @@ $("#btn-enrollCandidate").click(function () {
     var district = $("#cmb-districts option:selected").val();
     var province = $("#cmb-provinces option:selected").val();
 
-    var tableRow = "<tr>" +
+    var tableRow = "<tr id='" + tbl_rowCount + "'>" +
         "<td>" + candidateNo + "</td>" +
         "<td>" + candidate + "</td>" +
         "<td>" + party + "</td>" +
         "<td>" + pollDiv + "</td>" +
         "<td>" + district + "</td>" +
         "<td>" + province + "</td>" +
-        "<td  style='text-align: center;'> <i style='color: #0D0A0A' class='fa fa-window-close'></i></td></tr>";
+        "<td class='recycle' id="+tbl_rowCount+"  style='text-align: center;'> <i style='color: #0D0A0A' class='fa fa-window-close'></i></td></tr>";
 
     $("#tbl-Candidates tbody").append(tableRow);
-
+    tbl_rowCount++;
     $(".recycle").off();
-    $(".recycle").click(function () {
+    $(".recycle").click(function (event) {
+        console.log(this);
         if (confirm("Are you sure that you want to remove this Candidate?")) {
-            $("#tbl-Candidates tbody tr").remove();
+            $("#"+event.target.id).remove();
         }
     });
 });
 
 $("#btn-declareElection").click(function () {
     var election = {};
-    election.date=$("#txt-date").val();
-    election.startTime=$("#txt-startTime").val();
-    election.endTime=$("#txt-endTime").val();
-    election.electionType=$("#cmb-electionType option:selected").val();
+    election.date = $("#txt-date").val();
+    election.startTime = $("#txt-startTime").val();
+    election.endTime = $("#txt-endTime").val();
+    election.electionType = $("#cmb-electionType option:selected").val();
 
     var contestantDetails = [];
-    
+
 
     /*******************************Dilini's Code****************************************** */
     // var j = 0;
@@ -158,28 +161,28 @@ $("#btn-declareElection").click(function () {
     //         contestantDetails[j] = [candidateName,candidateNum];
     //         j++;
     // });
-/******************************************************************************************* */
-/****************************Udith 's Code ************************************************* */
+    /******************************************************************************************* */
+    /****************************Udith 's Code ************************************************* */
 
 
-       var myTab = document.getElementById('tbl-Candidates');
+    var myTab = document.getElementById('tbl-Candidates');
 
-       // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
-       for (i = 1; i < myTab.rows.length; i++) {
+    // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+    for (i = 1; i < myTab.rows.length; i++) {
 
-            // GET THE CELLS COLLECTION OF THE CURRENT ROW.
-            var objCells = myTab.rows.item(i).cells;
-            
-            candidateNum =  objCells.item(0).innerHTML;
-            candidateName = objCells.item(1).innerHTML;
-            contestantDetails[i-1] = [candidateName,candidateNum];
+        // GET THE CELLS COLLECTION OF THE CURRENT ROW.
+        var objCells = myTab.rows.item(i).cells;
 
-       }
+        candidateNum = objCells.item(0).innerHTML;
+        candidateName = objCells.item(1).innerHTML;
+        contestantDetails[i - 1] = [candidateName, candidateNum];
 
-
+    }
 
 
-/****************************************************************************************** */
+
+
+    /****************************************************************************************** */
 
 
     election.candidates = contestantDetails;
@@ -188,6 +191,7 @@ $("#btn-declareElection").click(function () {
     console.log(election);
 
     var election_json = JSON.stringify(election);
+    console.log(election_json);
 
 
 
@@ -202,7 +206,7 @@ $("#btn-declareElection").click(function () {
     };
 
     $.ajax(ajaxConfigElection).done(function (response) {
-        if(response===true){
+        if (response === true) {
             alert("Election Successfully Declared!");
         }
     });

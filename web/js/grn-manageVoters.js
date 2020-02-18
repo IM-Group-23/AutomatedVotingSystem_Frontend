@@ -4,6 +4,8 @@ function loadData() {
     var user = sessionStorage.getItem("user");
     console.log(user);
 
+    $("#tbl-Voters tbody").empty();
+
     var ajaxConfigVoters = {
         method: "POST",
         data: user,
@@ -107,6 +109,7 @@ $("#btn-add").click(function () {
         async: true,
         success: function () {
             alert("Successfully added Candidate");
+            loadData();
         },
         failed: function () {
             alert("Error in adding the Candidate");

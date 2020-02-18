@@ -175,7 +175,12 @@ $("#btn-declareElection").click(function () {
 
         candidateNum = objCells.item(0).innerHTML;
         candidateName = objCells.item(1).innerHTML;
-        contestantDetails[i - 1] = [candidateName, candidateNum];
+
+        var candidate = {};
+        candidate.contestName=candidateName;
+        candidate.candidateNO=candidateNum;
+        
+        contestantDetails[i - 1] = candidate;
 
     }
 

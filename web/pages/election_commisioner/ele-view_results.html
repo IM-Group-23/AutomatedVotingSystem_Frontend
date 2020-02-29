@@ -9,104 +9,106 @@
     <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="shortcut icon" href="../../images/logo.png"/>
+    <link rel="shortcut icon" href="../../images/logo.png" />
 </head>
 
 <body>
-<div class="container-scroller">
-    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center"  >
-            <a class="navbar-brand brand-logo" href="../../index.html" style=" width: 20%!important; height: 100%!important; ">
-                <img src="../../images/logo.png" width="100px" height="300px" alt="logo" style="border: 0px;height: 100%!important;   width: 100%!important;" />
-            </a>
-            <!-- <a class="navbar-brand brand-logo-mini" href="../../index.html">
+    <div class="container-scroller">
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+                <a class="navbar-brand brand-logo" href="../../index.html"
+                    style=" width: 20%!important; height: 100%!important; ">
+                    <img src="../../images/logo.png" width="100px" height="300px" alt="logo"
+                        style="border: 0px;height: 100%!important;   width: 100%!important;" />
+                </a>
+                <!-- <a class="navbar-brand brand-logo-mini" href="../../index.html">
                 <img src="../../images/logo-mini.svg" alt="logo"/>
                 <img src="../../images/logo.ico" width="20%" alt="logo"/>
             </a> -->
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown d-none d-xl-inline-block">
-                    <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
-                       aria-expanded="false">
-                        <span class="profile-text">Hello, Hello</span>
-                    </a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown d-none d-xl-inline-block">
+                        <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="profile-text">Hello, Hello</span>
+                        </a>
 
-                </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                     data-toggle="offcanvas">
-                <span class="mdi mdi-menu"></span>
-            </button>
-        </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-                <li class="nav-item nav-profile">
-                    <div class="nav-link">
-                        <div class="user-wrapper">
-                            <div class="text-wrapper">
-                                <p class="profile-name">Hello</p>
-                                <div>
-                                    <small class="designation text-muted">Election Commisioner</small>
-                                    <span class="status-indicator online"></span>
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <div class="nav-link">
+                            <div class="user-wrapper">
+                                <div class="text-wrapper">
+                                    <p class="profile-name">Hello</p>
+                                    <div>
+                                        <small class="designation text-muted">Election Commisioner</small>
+                                        <span class="status-indicator online"></span>
+                                    </div>
                                 </div>
                             </div>
+                            <a href="ele-declare_election.html">
+                                <button class="btn btn-success btn-block">Declare Election
+                                    <i class="mdi mdi-plus"></i>
+                                </button>
+                            </a>
                         </div>
-                        <a href="ele-declare_election.html">
-                            <button class="btn btn-success btn-block">Declare Election
-                                <i class="mdi mdi-plus"></i>
-                            </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ele-dashboard.html">
+                            <i class="menu-icon mdi mdi-television"></i>
+                            <span class="menu-title">Dashboard</span>
                         </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ele-dashboard.html">
-                        <i class="menu-icon mdi mdi-television"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ele-manage_election_candidates.html">
-                        <i class="menu-icon mdi mdi-chart-line"></i>
-                        <span class="menu-title">Manage Election Candidates</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ele-manage_province_details.html">
-                        <i class="menu-icon mdi mdi-table"></i>
-                        <span class="menu-title">Manage Province Details</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ele-manage_grama_niladari.html">
-                        <i class="menu-icon mdi mdi-sticker"></i>
-                        <span class="menu-title">Manage Grama Niladari</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ele-view_voters.html">
-                        <i class="menu-icon mdi mdi-sticker"></i>
-                        <span class="menu-title">View Voters</span>
-                    </a>
-                </li>
-<!-- View Results -->
-                <li class="nav-item">
-                    <a class="nav-link" href="ele-view_results.html">
-                        <i class="menu-icon mdi mdi-chart-line"></i>
-                        <span class="menu-title">Election Results</span>
-                    </a>
-                </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ele-manage_election_candidates.html">
+                            <i class="menu-icon mdi mdi-chart-line"></i>
+                            <span class="menu-title">Manage Election Candidates</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ele-manage_province_details.html">
+                            <i class="menu-icon mdi mdi-table"></i>
+                            <span class="menu-title">Manage Province Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ele-manage_grama_niladari.html">
+                            <i class="menu-icon mdi mdi-sticker"></i>
+                            <span class="menu-title">Manage Grama Niladari</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ele-view_voters.html">
+                            <i class="menu-icon mdi mdi-sticker"></i>
+                            <span class="menu-title">View Voters</span>
+                        </a>
+                    </li>
+                    <!-- View Results -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="ele-view_results.html">
+                            <i class="menu-icon mdi mdi-chart-line"></i>
+                            <span class="menu-title">Election Results</span>
+                        </a>
+                    </li>
 
-            </ul>
-        </nav>
+                </ul>
+            </nav>
 
-        <div class="main-panel">
-            <div class="content-wrapper">
-                <!-- <div class="row"> -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- <div class="row"> -->
                     <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
                         <div class="card card-statistics">
                             <div class="card-body">
@@ -178,7 +180,7 @@
                     </div>
                 </div> -->
 
-                <!-- <div class="row">
+                    <!-- <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
                         <div class="card card-statistics">
                             <div class="card-body">
@@ -254,8 +256,8 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="row">
-                    <!-- <div class="col-lg-4 grid-margin">
+                    <div class="row">
+                        <!-- <div class="col-lg-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Provinces</h4>
@@ -280,44 +282,57 @@
                     </div> -->
 
 
-                    <!-- Electoral Division -->
-                    <div class="col-lg-4 grid-margin" style="max-width: 50%;">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Election Results</h4>
-                                <h5 class="card-title"><b>Winner :</b><span id="winner"></span> </h5>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="tbl-districts">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="3" style="text-align: center" id="electionDetails">
-                                                   
-                                                </th>
-                                            </tr>
-                                        <tr>
-                                            <th>
-                                                Candidate's Number
-                                            </th>
-                                            <th>
-                                                Candidate's Name
-                                            </th>
-                                            <th>
-                                                No. of Votes
-                                            </th>
-                                        </tr>
-                                       
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                        <!-- Electoral Division -->
+                        <div class="col-lg-4 grid-margin" style="max-width: 50%;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Election Results</h4>
+                                    <h5 class="card-title"><b>Winner : Rinil Wijesinghe</b><span id="winner"></span> </h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="tbl-districts">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3" style="text-align: center" id="electionDetails">
+
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        Candidate's Number
+                                                    </th>
+                                                    <th>
+                                                        Candidate's Name
+                                                    </th>
+                                                    <th>Party</th>
+                                                    <th>
+                                                        No. of Votes
+                                                    </th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>21</td>
+                                                    <td>Rinil Wijesinghe</td>
+                                                    <td>UNP</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>23</td>
+                                                    <td>Mehinda Rajawickrama</td>
+                                                    <td>UPFA</td>
+                                                    <td>0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <!-- Polling Division -->
-                    <!-- <div class="col-lg-4 grid-margin">
+                        <!-- Polling Division -->
+                        <!-- <div class="col-lg-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Polling Divisions</h4>
@@ -340,23 +355,23 @@
                             </div>
                         </div>
                     </div> -->
+                    </div>
                 </div>
+                <footer class="footer">
+                    <div class="container-fluid clearfix">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2020
+                            . All rights reserved.</span>
+                    </div>
+                </footer>
             </div>
-            <footer class="footer">
-                <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2020
-              . All rights reserved.</span>
-                </div>
-            </footer>
         </div>
     </div>
-</div>
 
-<script src="../../vendors/js/vendor.bundle.base.js"></script>
-<script src="../../vendors/js/vendor.bundle.addons.js"></script>
-<script src="../../js/off-canvas.js"></script>
-<script src="../../js/misc.js"></script>
-<script src="../../js/ele-results.js"></script>
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../vendors/js/vendor.bundle.addons.js"></script>
+    <script src="../../js/off-canvas.js"></script>
+    <script src="../../js/misc.js"></script>
+    <script src="../../js/ele-results.js"></script>
 
 </body>
 

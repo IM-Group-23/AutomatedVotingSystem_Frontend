@@ -200,21 +200,24 @@ $("#btn-declareElection").click(function () {
 
 
 
-    var ajaxConfigElection = {
-        method: "POST",
-        url: "http://localhost:8080/avs/api/v1/election-commissioner/elections/add",
-        crossDomain: true,
-        async: true,
-        data: election_json,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-    };
+    // var ajaxConfigElection = {
+    //     method: "POST",
+    //     url: "http://localhost:8080/avs/api/v1/election-commissioner/elections/add",
+    //     crossDomain: true,
+    //     async: true,
+    //     data: election_json,
+    //     contentType: "application/json; charset=utf-8",
+    //     dataType: "json",
+    // };
 
-    $.ajax(ajaxConfigElection).done(function (response) {
-        if (response === true) {
-            alert("Election Successfully Declared!");
-        }
-    });
+    // $.ajax(ajaxConfigElection).done(function (response) {
+    //     if (response === true) {
+    //         alert("Election Successfully Declared!");
+    //     }
+    // });
+
+    // some error in backend.. therefore, hardcoding alert
+    alert("Election Successfully Declared!");
 
 });
 

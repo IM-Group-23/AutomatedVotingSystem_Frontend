@@ -47,7 +47,62 @@ function loadData() {
         // });
 
     });
+
+
+
+
+    // getting all districts
+    var ajaxConfigDistrict = {
+        method: "GET",
+        url: "http://localhost:8080/avs/api/v1/election-commissioner/districts",
+        crossDomain: true,
+        async: true
+    };
+
+    $.ajax(ajaxConfigDistrict).done(function (response) {
+        response.forEach(function (district) {
+            var tableRow = "<tr>" +
+                "<td>" + district.id + "</td>" +
+                "<td>" + district.name + "</td>" +
+                "<td class='recycle-2' style='text-align: center;'><i style='color: #0D0A0A' class='fa fa-window-close'></i></td></tr>";
+            $("#tbl-districts tbody").append(tableRow);
+        });
+
+        $(".recycle-2").off();
+        $(".recycle-2").click(function () {
+            if (confirm("Are you sure that you want to remove this District?")) {
+                $("#tbl-districts tbody tr").remove();
+            }
+        });
+    });
+
+    var ajaxConfigPollingDivision = {
+        method: "GET",
+        url: "http://localhost:8080/avs/api/v1/election-commissioner/pollDivs",
+        crossDomain: true,
+        async: true
+    };
+
+    $.ajax(ajaxConfigPollingDivision).done(function (response) {
+        response.forEach(function (pollDiv) {
+            var tableRow = "<tr>" +
+                "<td>" + pollDiv.pollId + "</td>" +
+                "<td>" + pollDiv.pollName + "</td>" +
+                "<td class='recycle-3' style='text-align: center;'><i style='color: #0D0A0A' class='fa fa-window-close'></i></td></tr>";
+            $("#tbl-pollDivs tbody").append(tableRow);
+        });
+
+        $(".recycle-3").off();
+        $(".recycle-3").click(function () {
+            if (confirm("Are you sure that you want to remove this Polling Division?")) {
+                $("#tbl-pollDivs tbody tr").remove();
+            }
+        });
+    });
+
 }
+
+// from here below - things are not working.. therefore, all the districts and poll divs are just loaded in loadData() function
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 // once a row in provinces table is clicked, fill the districts table with the relevant districts of that selected province
